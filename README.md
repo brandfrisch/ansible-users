@@ -1,4 +1,4 @@
-Users
+Users [![Build Status](https://travis-ci.org/brandfrisch/users.svg?branch=master)](https://travis-ci.org/brandfrisch/users)
 =========
 
 This is a rule to setup users on a unix system
