@@ -1,0 +1,30 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+    goss:
+      user:
+        foo:
+          exists: true
+          uid: 1000
+          gid: 1000
+          groups:
+          - foo
+          - ssh
+          - sudo
+          home: /home/foo
+          shell: /bin/bash
+        bar:
+          exists: false
+
+  pre_tasks:
+
+    - name: Copy tests to remote
+      copy:
+        content: "{{ goss | to_nice_yaml }}"
+        dest: "/tmp/goss.yml"
+
+    - name: test goss files
+      goss:
+        path: "/tmp/goss.yml"
+        format: documentation

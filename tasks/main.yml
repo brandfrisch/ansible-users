@@ -1,0 +1,99 @@
+---
+# tasks file for users
+
+- name: Set a list with username
+  set_fact:
+    username_list: "{{ users_present | map(attribute='name') | list }}"
+  tags:
+    - setup
+    - users
+
+- name: Create groups for non system users
+  group:
+    name: "{{ item.name }}"
+    state: present
+  with_items:
+    - "{{ users_present }}"
+  tags:
+    - setup
+    - users
+
+- name: Create groups
+  group:
+    name: "{{ item.1 }}"
+    state: present
+  with_subelements:
+     - "{{ users_present }}"
+     - "groups"
+     - flags:
+       skip_missing: true
+  tags:
+    - setup
+    - users
+
+- name: Create non system users
+  user:
+    name: "{{ item.name }}"
+    group: "{{ item.name }}"
+    groups: "{{ item.groups | join(',') if item.groups is defined else ''}}"
+    shell: "{{ item.shell | default ('/bin/bash') }}"
+    comment: "{{ item.gecos | join(',') if item.gecos is defined else '' }}"
+    createhome: true
+    system: no
+    state: present
+  with_items:
+    - "{{ users_present }}"
+  tags:
+    - setup
+    - users
+
+- name: Set password for users
+  when: item.password is defined
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    state: present
+  with_items:
+    - "{{ users_present }}"
+  tags:
+    - setup
+    - users
+
+- name: Set SSH-Keys for users
+  authorized_key:
+    user: "{{ item.0.name }}"
+    key: "{{ item.1 }}"
+    manage_dir: true
+    state: present
+  with_subelements:
+     - "{{ users_present }}"
+     - "ssh_keys"
+     - flags:
+       skip_missing: true
+  tags:
+    - setup
+    - users
+
+- name: Set the user home to secure
+  file:
+    path: "/home/{{ item }}"
+    state: directory
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: 0700
+  with_items:
+    - "{{ username_list }}"
+  tags:
+    - setup
+    - users
+
+- name: Set absent non system users - but does not remove
+  user:
+    name: "{{ item }}"
+    state: absent
+    remove: false
+  with_items:
+    - "{{ users_absent }}"
+  tags:
+    - setup
+    - users
