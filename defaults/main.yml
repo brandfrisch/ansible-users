@@ -5,6 +5,7 @@ users_present: []
 users_absent: []
 
 ## Users holds all non system users
+
 # users_present:
 #   # Only the name is required, everything else is optional
 #   - name: foo
