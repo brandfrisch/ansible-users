@@ -37,7 +37,7 @@
     group: "{{ item.name }}"
     groups: "{{ item.groups | join(',') if item.groups is defined else ''}}"
     shell: "{{ item.shell | default ('/bin/bash') }}"
-    comment: "{{ item.gecos | join(',') if item.gecos is defined else '' }}"
+    comment: "{{ item.gecos if item.gecos is defined else '' }}"
     createhome: true
     system: no
     state: present
