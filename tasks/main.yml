@@ -45,16 +45,16 @@
     manage_dir: true
     state: present
   with_subelements:
-     - "{{ users_present }}"
-     - "ssh_keys"
-     - flags:
-       skip_missing: true
+    - "{{ users_present }}"
+    - "ssh_keys"
+    - flags:
+      skip_missing: true
   tags:
     - setup
     - users
 
 - name: Set the user home to secure
-  when: "{{ item.securehome | default(false) }}"
+  when: item.securehome | default(false)
   file:
     path: "{{ item.home if item.home is defined else '/home/' + item.name }}"
     state: directory
