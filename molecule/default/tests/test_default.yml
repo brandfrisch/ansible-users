@@ -1,0 +1,58 @@
+---
+user:
+  baaz:
+    exists: true
+    uid: 6025
+    gid: 5027
+    groups:
+      - baaz
+    home: /home/baaz
+  bar:
+    exists: true
+    uid: 5025
+    gid: 5025
+    groups:
+      - bar
+    home: /opt/bar
+    shell: /bin/sh
+  baz:
+    exists: true
+    uid: 503
+    gid: 5026
+    groups:
+      - baz
+    home: /home/baz
+  foo:
+    exists: true
+    uid: 5024
+    gid: 5024
+    groups:
+      - foo
+      - foo_group
+      - second_foo_group
+    home: /home/foo
+    shell: /bin/bash
+  quux:
+    exists: true
+    uid: 6026
+    gid: 5028
+    groups:
+      - quux
+    home: /opt/quux
+    shell: /bin/sh
+group:
+  baaz:
+    exists: true
+    gid: 5027
+  bar:
+    exists: true
+    gid: 5025
+  baz:
+    exists: true
+    gid: 5026
+  foo:
+    exists: true
+    gid: 5024
+  quux:
+    exists: true
+    gid: 5028
