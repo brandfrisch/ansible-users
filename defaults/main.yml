@@ -14,7 +14,7 @@ users_absent: []
 #     groups:
 #       - sudo
 #       - ssh
-#     password: "$6$rounds=656000$RF0RKDkLVPMPh.oJ$9mtUAQOW95qJfHuB8zybsiwT9rUtyVpiF6j2XVk00/FfYg0X.qhP1ZuZld/4qmTz/GvCUTWScZf37rDK70R530"
+#     password: "$6$r..."
 #     shell: /bin/bash
 #     ssh_keys:
-#       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCz3OHxZLgLsdQavCHMzqrtMGEEhN+XSeIc2to9ZCNPM3w/JlkR2tnLpCOJvpPwXpbG3RJUrXN1IzTIlUvKryH0WfH1jq7UzBPy6JnPzLFAox5f6z+Ee0F32kswvYsec7e+C8f4ofGS9EZK9FW5PZdXT6mF0hzdc/wCT5kR2mzZB5hE1up8iNPlof58UEMHFNLNle2NbAvUAoYoi3quO0f388BWwDp7QzzzG2Ex1T19bRFzTKdnpCUUKs+wfQItRVwOCkH5amrfQceqr5LBfWZLcVC92mmh43572m3d7e5E1p3n5jsfHOiUqrqbnrBePFATl6sEIz7Pm4LBO+g4I6UDVvIOB0MbnijcCK6uPENyll2qpXGLtA7TMKjWuFPZtXN79xovQbaLk2WdYMCfUEFZwt+lOyZsWfOeW9VVJwt+g5mYZUGGiqLgqloHUXTMliqTlJviSjp+PGIsEbBN7Nc/pQ92S8OWp8oY0lMFwbuAmepuBS6loLpX1D25iaZBLv5waL0R2srtBdx+hvhTtCNYB0mx7513BIElwKPc/BzPMkrXhnKsJs+x5428VxQ4EhNhfIGOOs4dLBaoqLJEYe6+5zzFMWa91qScINyUVygfpzjMDmydZJ3njno+F9sY9Ajl90dQQnoMUSlZJaaun9jLffpjz+AQlZ8bShaDNilrgQ== alexander.jaeger@me.com'
+#       - 'ssh-rsa ...'
