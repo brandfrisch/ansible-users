@@ -48,7 +48,7 @@
     - "{{ users_present }}"
     - "ssh_keys"
     - flags:
-      skip_missing: true
+        skip_missing: true
   tags:
     - setup
     - users
