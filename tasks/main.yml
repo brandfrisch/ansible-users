@@ -47,8 +47,9 @@
   with_subelements:
     - "{{ users_present }}"
     - "ssh_keys"
+    # yamllint disable-line rule:empty-values
     - flags:
-        skip_missing: true
+      skip_missing: true
   tags:
     - setup
     - users
